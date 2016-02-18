@@ -21,7 +21,7 @@ object AspectJWeaver extends AutoPlugin {
 
   override lazy val projectSettings = Seq(
     ivyConfigurations += ajConfig,
-    aspectJWeaverVersion := "1.8.6",
+    aspectJWeaverVersion := "1.8.8",
     aspectJWeaverAgent := findAspectJWeaverAgent(update.value),
     libraryDependencies += "org.aspectj" % "aspectjweaver" % aspectJWeaverVersion.value % ajConfig,
     mappings in Universal += aspectJWeaverAgent.value -> "aspectjweaver/aspectjweaver.jar",

@@ -18,7 +18,7 @@ Installation for sbt-native-packager 1.0.x (and Play 2.4.x)
 Add the following to your `project/plugins.sbt` file:
 
 ```scala
-addSbtPlugin("com.gilt.sbt" % "sbt-aspectjweaver" % "0.0.1")
+addSbtPlugin("com.gilt.sbt" % "sbt-aspectjweaver" % "0.0.2")
 ```
 
 To use the AspectJ Weaver settings in your project, add the `AspectJWeaver` auto-plugin to your project.
@@ -33,5 +33,5 @@ Configuration
 To use a specific AspectJ Weaver version, add the following to your `build.sbt` file:
 
 ```scala
-aspectJWeaverVersion := "1.8.6"
+aspectJWeaverVersion := "1.8.8"
 ```
