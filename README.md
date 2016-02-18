@@ -18,8 +18,6 @@ Installation for sbt-native-packager 1.0.x (and Play 2.4.x)
 Add the following to your `project/plugins.sbt` file:
 
 ```scala
-resolvers += Resolver.bintrayRepo("giltgroupe", "sbt-plugin-releases")
-
 addSbtPlugin("com.gilt.sbt" % "sbt-aspectjweaver" % "0.0.1")
 ```
 
