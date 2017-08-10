@@ -13,7 +13,7 @@ scalacOptions ++= List(
 
 javaVersionPrefix in javaVersionCheck := Some("1.7")
 
-addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.0.3" % "provided")
+addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.2.0" % "provided")
 
 version := "git describe --tags --dirty --always".!!.stripPrefix("v").trim
 
