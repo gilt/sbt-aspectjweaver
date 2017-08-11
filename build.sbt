@@ -1,3 +1,7 @@
+enablePlugins(GitVersioning)
+
+git.useGitDescribe := true
+
 organization := "com.gilt.sbt"
 
 name := "sbt-aspectjweaver"
@@ -14,8 +18,6 @@ scalacOptions ++= List(
 javaVersionPrefix in javaVersionCheck := Some("1.7")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.2.0" % "provided")
-
-version := "git describe --tags --dirty --always".!!.stripPrefix("v").trim
 
 publishMavenStyle := false
 
