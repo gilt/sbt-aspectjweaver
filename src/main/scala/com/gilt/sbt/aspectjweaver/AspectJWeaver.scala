@@ -1,12 +1,13 @@
 package com.gilt.sbt.aspectjweaver
 
 import sbt._
-import sbt.Keys._
-import com.typesafe.sbt.SbtNativePackager._
 import com.typesafe.sbt.packager.Keys.bashScriptExtraDefines
 import com.typesafe.sbt.packager.archetypes.scripts.BashStartScriptPlugin
+import com.typesafe.sbt.SbtNativePackager._
+import sbt.Keys.{ivyConfigurations, libraryDependencies, mappings, update}
+import sbt.{AutoPlugin, File, UpdateReport, config, settingKey, taskKey}
 
-object AspectJWeaver extends AutoPlugin {
+object AspectJWeaver extends AutoPlugin with CrossDependencyFilter {
 
   override def requires = BashStartScriptPlugin
 
@@ -27,9 +28,6 @@ object AspectJWeaver extends AutoPlugin {
     mappings in Universal += aspectJWeaverAgent.value -> "aspectjweaver/aspectjweaver.jar",
     bashScriptExtraDefines += """addJava "-javaagent:${app_home}/../aspectjweaver/aspectjweaver.jar""""
   )
-
-  private[this] val aspectJWeaverFilter: DependencyFilter =
-    configurationFilter("aspectjweaver-agent") && artifactFilter(`type` = "jar")
 
   def findAspectJWeaverAgent(report: UpdateReport) = report.matching(aspectJWeaverFilter).head
 }
