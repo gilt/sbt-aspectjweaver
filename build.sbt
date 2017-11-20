@@ -4,6 +4,8 @@ git.useGitDescribe := true
 
 organization := "com.gilt.sbt"
 
+crossSbtVersions := Vector("0.13.16", "1.0.1")
+
 name := "sbt-aspectjweaver"
 
 sbtPlugin := true
@@ -15,9 +17,7 @@ scalacOptions ++= List(
   "-encoding", "UTF-8"
 )
 
-javaVersionPrefix in javaVersionCheck := Some("1.7")
-
-addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.2.0" % "provided")
+addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.3.0" % "provided")
 
 publishMavenStyle := false
 
