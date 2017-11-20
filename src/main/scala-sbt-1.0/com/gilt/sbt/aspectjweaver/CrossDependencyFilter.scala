@@ -5,6 +5,8 @@ import sbt.librarymanagement.DependencyFilter
 
 trait CrossDependencyFilter {
 
+  val configName = "Aspectjweaver-agent"
+
   val aspectJWeaverFilter: DependencyFilter =
-    configurationFilter("aspectjweaver-agent") && artifactFilter(`type` = "jar")
+    configurationFilter(configName) && artifactFilter(`type` = "jar")
 }

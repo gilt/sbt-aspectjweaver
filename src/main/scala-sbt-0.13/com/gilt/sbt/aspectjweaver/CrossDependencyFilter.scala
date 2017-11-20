@@ -7,7 +7,10 @@ import com.typesafe.sbt.packager.Keys.bashScriptExtraDefines
 import com.typesafe.sbt.packager.archetypes.scripts.BashStartScriptPlugin
 
 trait CrossDependencyFilter {
+
+  val configName = "aspectjweaver-agent"
+
   val aspectJWeaverFilter: DependencyFilter =
-    configurationFilter("aspectjweaver-agent") && artifactFilter(`type` = "jar")
+    configurationFilter(configName) && artifactFilter(`type` = "jar")
 
 }

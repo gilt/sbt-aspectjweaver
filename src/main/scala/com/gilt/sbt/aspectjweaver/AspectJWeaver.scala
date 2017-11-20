@@ -18,13 +18,13 @@ object AspectJWeaver extends AutoPlugin with CrossDependencyFilter {
 
   import autoImport._
 
-  val ajConfig = config("aspectjweaver-agent").hide
+  val AjConfig = config(configName).hide
 
   override def projectSettings = Seq(
-    ivyConfigurations += ajConfig,
+    ivyConfigurations += AjConfig,
     aspectJWeaverVersion := "1.8.10",
     aspectJWeaverAgent := findAspectJWeaverAgent(update.value),
-    libraryDependencies += "org.aspectj" % "aspectjweaver" % aspectJWeaverVersion.value % ajConfig,
+    libraryDependencies += "org.aspectj" % "aspectjweaver" % aspectJWeaverVersion.value % AjConfig,
     mappings in Universal += aspectJWeaverAgent.value -> "aspectjweaver/aspectjweaver.jar",
     bashScriptExtraDefines += """addJava "-javaagent:${app_home}/../aspectjweaver/aspectjweaver.jar""""
   )
